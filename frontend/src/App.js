@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "./components";
 import "animate.css";
-// import "./map-style.css";
 
 const bd = [
   { className: "room", text: "Спикеры" },
