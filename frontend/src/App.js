@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "./components";
 import "animate.css";
@@ -18,8 +19,5 @@ function App() {
           const { className, text } = btn;
           return <Button className={className} text={text} />;
         })}
-    </div>
-  );
-}
 
 export default App;
