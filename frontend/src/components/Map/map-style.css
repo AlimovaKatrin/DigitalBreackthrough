@@ -1,5 +1,5 @@
 .grid-container {
-  background-image: linear-gradient( to top, rgba(250, 232, 226, 0), #dfb5a9), url("../../img/russia.svg");
+  /* background-image: linear-gradient( to top, rgba(250, 232, 226, 0), #dfb5a9), url("../../img/russia.svg"); */
   background-size: cover;
   background-position: center;
   background-color: #1D3C64;
