@@ -1,10 +1,11 @@
 import React from 'react';
-import Map from './components/Map/Map';
+
+import Chatroom from './components/Chat/Chatroom';
 
 function App() {
   return (
     <div>
-      <Map></Map>
+      <Chatroom></Chatroom>
     </div>
   );
 }

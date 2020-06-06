@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const http = require('http').Server(app);
+const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const mongoose = require("mongoose");
 const logger = require("morgan");
@@ -13,13 +13,6 @@ const path = require("path");
 //  замените поле на пароль, который создан раньше.
 //  ---------------------------------
 
-mongoose.connect("mongodb://localhost:27017/assess", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
-
-
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(logger("dev"));
@@ -30,8 +23,14 @@ app.get('/', (req, res) => {
   res.send('hi');
 });
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
+const chat = io.of('/chat')
+  .on('connection', (socket) => {
+    // socket.broadcast.emit('chat message', 'welcome');
+
+    socket.broadcast.on('chat message', function (msg) {
+      console.log(msg);
+      socket.emit('chat message', msg);
+    });
+  });
 
 module.exports = http;
