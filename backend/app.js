@@ -3,18 +3,18 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 
-// ---------    НАШ БД ATLAS
+const signupRouter = require('./routes/signup');
 
-//  mongodb+srv://Maxim:<password>@maxcluster-c99u0.mongodb.net/<dbname>?retryWrites=true&w=majority
-//  примечание:  поля user и cluster#-dbname уже заполнены,
-//  замените поле на пароль, который создан раньше.
-//  ---------------------------------
-
-mongoose.connect("mongodb://localhost:27017/assess", {
+mongoose.connect(
+  'mongodb+srv://Elbrus:123@digitalbreackthrough-9owna.mongodb.net/DigitalBreackthrough?retryWrites=true&w=majority', 
+  {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-});
+  },
+)
+.then(() => console.log('MongoDb connected!!!'))
+.catch(() => console.log(err));
 
 const app = express();
 
@@ -24,8 +24,10 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
-  res.send('hi');
-});
+// app.get('/', (req, res) => {
+//   res.send('hi!!!');
+// });
+
+app.use('/signup', signupRouter);
 
 module.exports = app;
