@@ -1,4 +1,7 @@
 const express = require("express");
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
@@ -16,7 +19,6 @@ mongoose.connect("mongodb://localhost:27017/assess", {
   useCreateIndex: true,
 });
 
-const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -28,4 +30,8 @@ app.get('/', (req, res) => {
   res.send('hi');
 });
 
-module.exports = app;
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+module.exports = http;
