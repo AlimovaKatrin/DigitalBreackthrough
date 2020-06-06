@@ -1,0 +1,11 @@
+.grid-container {
+  background-image: linear-gradient( to top, rgba(250, 232, 226, 0), #dfb5a9), url("../../img/russia.svg");
+  background-size: cover;
+  background-position: center;
+  background-color: #1D3C64;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(19, 1fr);
+  gap: 1px 1px;
+  grid-template-areas: ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . . . . . .";
+}
