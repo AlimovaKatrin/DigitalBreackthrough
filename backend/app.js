@@ -1,4 +1,7 @@
 const express = require("express");
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
@@ -16,7 +19,6 @@ mongoose.connect(
 .then(() => console.log('MongoDb connected!!!'))
 .catch(() => console.log(err));
 
-const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -30,4 +32,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/signup', signupRouter);
 
-module.exports = app;
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+module.exports = http;
