@@ -9,29 +9,25 @@ function Chatroom() {
 
   const state = useSelector(state => state);
   const dispatch = useDispatch();
-  
+
   const [textValue, setText] = useState('');
   const [currentUser, setCurrent] = useState(state.currentUser);
   const [msg, setValue] = useState('');
-  
-  useEffect(() => {
 
+  useEffect(() => {
     socket.on('chat message', (msg) => {
       if (currentUser.userId !== msg.userId) {
         dispatch(addMsgAC(msg.textValue, msg.userId))
       }
-      console.log(state);
       setValue(msg.textValue)
     });
-  }, []);
+  }, [state]);
 
 
   const sendMsg = () => {
-    console.log('отправляю');
-
     const currentMsg = { textValue, userId: currentUser.userId }
     dispatch(addMsgAC(textValue, currentUser.userId))
-
+    setText('');
     socket.emit('chat message', currentMsg)
   }
 
@@ -43,7 +39,7 @@ function Chatroom() {
       </div>
       <div>
         <input
-          // value={textValue}
+          value={textValue}
           onChange={(e) => setText(e.target.value)}
         ></input>
       </div>

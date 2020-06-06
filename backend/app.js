@@ -25,8 +25,6 @@ app.get('/', (req, res) => {
 
 const chat = io.of('/chat')
   .on('connection', (socket) => {
-    // socket.broadcast.emit('chat message', 'welcome');
-
     socket.broadcast.on('chat message', function (msg) {
       console.log(msg);
       socket.emit('chat message', msg);

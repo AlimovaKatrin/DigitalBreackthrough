@@ -19,5 +19,6 @@ function App() {
           const { className, text } = btn;
           return <Button className={className} text={text} />;
         })}
-
+    </div>)
+}
 export default App;
