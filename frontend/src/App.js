@@ -1,6 +1,8 @@
-
 import React from "react";
-import { Button } from "./components";
+import { Button, Chat } from "./components";
+import { Route } from "react-router-dom";
+
+
 import "animate.css";
 
 const bd = [
@@ -13,11 +15,22 @@ const bd = [
 
 function App() {
   return (
-    <div className="app">
-      {bd &&
-        bd.map((btn) => {
-          const { className, text } = btn;
-          return <Button className={className} text={text} />;
-        })}
+    <div>
+      <Route exact path="/">
+        <div className="app">
+          {bd &&
+            bd.map((btn, index) => {
+              const { className, text } = btn;
+              return <Button key={index} className={className} text={text} />;
+            })}
+            <div className='game'></div>
+        </div>
+      </Route>
+      <Route exact path="/chat">
+        <Chat />
+      </Route>
+    </div>
+  );
+}
 
 export default App;

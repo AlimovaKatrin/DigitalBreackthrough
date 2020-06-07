@@ -9,11 +9,10 @@
     "animate.css": "^4.1.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "proxy": "http://localhost:3000/",
-
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "socket.io-client": "^2.3.0"

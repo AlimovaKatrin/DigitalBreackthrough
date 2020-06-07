@@ -3,15 +3,15 @@ const { ADD_MSG } = require('./type');
 const initialState = {
   currentUser: {
     userId: Math.floor(Math.random() * 10000000),
-    name: 'Katrin'
+    name: ''
   },
-  msgs: [{ userId: '1111', msg: 'Hi' }, { userId: '2222', msg: 'Hola' }, { userId: '1111', msg: 'Wazz UP' }]
+  msgs: []
 }
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MSG:
-      return {...state,['msgs']:[...state.msgs,{userId:action.userId,msg:action.text}]}
+      return {...state,['msgs']:[...state.msgs,{userId:action.userId,msg:action.text, name: action.name, className:action.className}]}
     default:
       return state
   }

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+.chat {
+  &__wrapper {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: calc(100vh - 200px);
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 20px #f3f3f3;
+    border-radius: 10px 10px 0 0;
+    // border: 1px solid #f1f1f1;
+    font-size: 14px;
+  }
+  &__msg {
+    background-color: #f4f6f8;
+    min-height: calc(100% - 200px);
+    height: 100%;
+    // border-right: 1px solid #f1f1f1;
+    padding: 60px 20px;
+    border-radius: 10px 10px 0 0;
+    overflow: auto;
+  }
+}
+
+body {
+  background: linear-gradient(129.81deg, #75bcac, transparent 59%, transparent),
+    linear-gradient(225deg, #e63e61, transparent),
+    linear-gradient(45deg, #e3ca76, transparent 39%, transparent),
+    linear-gradient(
+      315deg,
+      #007e9d,
+      rgba(0, 126, 157, 0.31) 41%,
+      transparent 75%,
+      transparent
+    ),
+    #fff;
+  height: 100vh;
+}
+
+b.name {
+  display: block;
+  font-size: 22px;
+  color: red;
+  font-family: 'Balsamiq Sans', cursive;
+}
+span.text {
+  color: #000;
+  font-size: 14px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+}

@@ -5,6 +5,8 @@
   box-sizing: border-box;
   transition: all 1s ease-in-out;
   font-family: 'PT Mono', monospace;
+  text-decoration: none;
+  outline: none;
 }
 
 
@@ -99,3 +101,17 @@
   position: relative;
 }
 
+.game {
+  position: absolute;
+  bottom: 10px;
+  right: -50px;
+  width: 60px;
+  height: 60px;
+  background: url('./assets/img/logo.png') no-repeat;
+  background-size: contain;
+
+  &:hover {
+    cursor: pointer;
+    transform: translate(-100%);
+  }
+}
